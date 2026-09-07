@@ -81,8 +81,13 @@
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzkzOkyk2zwObyZThhZE1ACAPYAtwPMZsSoUij9yHw_vEKgmkImUOCVlk-F_SH06b_w/exec';
         const OFFLINE_QUEUE_KEY = 'sauce_safety_offline_queue_qc';
         
+        // Актуально на 07.09.2026. Джерело істини — довідник працівників.
+        // Використовується лише як резерв: при вході з порталу ПІБ приходить
+        // із самого порталу (див. блок підтвердження особи внизу файлу).
         const employeesList = [
-            "Соботович Л.М.", "Огаркова М.В.", "Попадюк А.М."
+            "Огаркова Марія Володимирівна",
+            "Попадюк Анжела Миколаївна",
+            "Соботович Лілія Михайлівна"
         ];
 
         // 20 запитань (складність 8.5/10). Всі варіанти відповідей ідеально збалансовані по довжині та термінології.
@@ -327,7 +332,7 @@
         //   true  — тест відкривається ТІЛЬКИ з порталу; прямі посилання
         //           блокуються, список ПІБ не використовується взагалі
         //           ("мертві душі" зникають повністю).
-        var REQUIRE_PORTAL = false;
+        var REQUIRE_PORTAL = true;
 
         var pt = null;
         try { pt = new URLSearchParams(location.search).get('pt'); } catch (e) { pt = null; }
